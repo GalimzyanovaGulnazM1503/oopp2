@@ -218,5 +218,17 @@ class RadioTest {
             assertEquals(i, radio.getCurrentStation());
         }
     }
+
+    @Test
+    void testStationNegativeVar() {
+            radio.setStation((byte) -1);
+            assertEquals(1, radio.getCurrentStation());
+    }
+
+    @Test
+    void testStationMaxVar() {
+        radio.setStation((byte) 10);
+        assertEquals(1, radio.getCurrentStation());
+    }
 }
 
