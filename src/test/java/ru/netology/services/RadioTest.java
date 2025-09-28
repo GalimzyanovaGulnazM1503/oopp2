@@ -113,27 +113,27 @@ class RadioTest {
     @Test
     void testPreviousStationFromMiddle() {
         radio.setStation((byte) 5);
-        radio.dec();
+        radio.prev();
         assertEquals(4, radio.getCurrentStation());
     }
 
     @Test
     void testPreviousStationFromInitial() {
-        radio.dec();
+        radio.prev();
         assertEquals(1, radio.getCurrentStation()); // Не должен измениться
     }
 
     @Test
     void testPreviousStationFromTwo() {
         radio.setStation((byte) 2);
-        radio.dec();
+        radio.prev();
         assertEquals(1, radio.getCurrentStation());
     }
 
     @Test
     void testPreviousStationAtMin() {
-        radio.dec();
-        radio.dec();
+        radio.prev();
+        radio.prev();
         assertEquals(1, radio.getCurrentStation()); // Не должен измениться
     }
 
@@ -160,7 +160,7 @@ class RadioTest {
         // Последовательность операций со станциями
         radio.next(); // 1 -> 2
         radio.next(); // 2 -> 3
-        radio.dec();  // 3 -> 2
+        radio.prev();  // 3 -> 2
         radio.next(); // 2 -> 3
         radio.next(); // 3 -> 4
 
@@ -179,7 +179,7 @@ class RadioTest {
         assertEquals(2, radio.getCurrentVolume());
 
         radio.decVolume();
-        radio.dec();
+        radio.prev();
 
         assertEquals(2, radio.getCurrentStation());
         assertEquals(1, radio.getCurrentVolume());
@@ -202,7 +202,7 @@ class RadioTest {
         radio.incVolume();
         radio.next();
         radio.decVolume();
-        radio.dec();
+        radio.prev();
         radio.setStation((byte) 8);
         radio.incVolume();
 

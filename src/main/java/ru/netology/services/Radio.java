@@ -24,7 +24,7 @@ public class Radio {
         }
     }
 
-    public void dec() {
+    public void prev() {
         if (currentStation > 1) {
             currentStation = currentStation - 1;
         }
