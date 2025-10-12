@@ -107,7 +107,7 @@ class RadioTest {
     void testNextStationAtMax() {
         radio.setStation((byte) 9);
         radio.next();
-        assertEquals(9, radio.getCurrentStation()); // Не должен измениться
+        assertEquals(0, radio.getCurrentStation()); // Не должен измениться
     }
 
     @Test
@@ -120,7 +120,7 @@ class RadioTest {
     @Test
     void testPreviousStationFromInitial() {
         radio.prev();
-        assertEquals(1, radio.getCurrentStation()); // Не должен измениться
+        assertEquals(0, radio.getCurrentStation()); // Не должен измениться
     }
 
     @Test
@@ -134,7 +134,7 @@ class RadioTest {
     void testPreviousStationAtMin() {
         radio.prev();
         radio.prev();
-        assertEquals(1, radio.getCurrentStation()); // Не должен измениться
+        assertEquals(9, radio.getCurrentStation()); // Не должен измениться
     }
 
     @Test
@@ -221,8 +221,8 @@ class RadioTest {
 
     @Test
     void testStationNegativeVar() {
-            radio.setStation((byte) -1);
-            assertEquals(1, radio.getCurrentStation());
+        radio.setStation((byte) -1);
+        assertEquals(1, radio.getCurrentStation());
     }
 
     @Test
